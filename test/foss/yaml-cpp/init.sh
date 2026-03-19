@@ -24,6 +24,13 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+# Skip this test on bazel 8
+MAJOR_VERSION=$(bazel --version | cut -d' ' -f2 | cut -d'.' -f1)
+if [ "$MAJOR_VERSION" -ge 8 ]; then
+    echo "" >> $1/.skipfosstest
+    exit 0
+fi
+
 git clone https://github.com/jbeder/yaml-cpp.git "$1"
 git -C "$1" checkout yaml-cpp-0.7.0
 
