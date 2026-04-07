@@ -29,6 +29,8 @@ Example:
     )
 """
 
+load("@rules_python//python:defs.bzl", "py_test")
+
 def foss_test(
         name,
         url,
@@ -51,7 +53,7 @@ def foss_test(
     if target == None:
         target = ":" + name
 
-    native.py_test(
+    py_test(
         name = name,
         srcs = ["foss_test_runner.py"],
         main = "foss_test_runner.py",
@@ -59,7 +61,7 @@ def foss_test(
             "-vvv",
             "--url=" + url,
             "--target=" + target,
-            "--tests"
+            "--tests",
         ] + tests,
         local = True,
         tags = ["foss", "external"] + tags,

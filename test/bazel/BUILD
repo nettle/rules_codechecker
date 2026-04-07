@@ -29,21 +29,21 @@ load(":foss_test.bzl", "foss_test")
 
 foss_test(
     name = "zlib",
-    url = "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz",
     tests = [
+        ":codechecker_per_file",
         ":codechecker_test",
         ":compile_commands",
-        ":codechecker_per_file",
     ],
+    url = "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz",
 )
 
 foss_test(
     name = "yaml-cpp",
-    url = "https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.tar.gz",
     tests = [
         ":codechecker_test",
         ":compile_commands",
         # FIXME: output 'analysis/codechecker_per_file/data/src-emit.cpp_clangsa.plist' was not created
         # ":codechecker_per_file",
     ],
+    url = "https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.tar.gz",
 )
