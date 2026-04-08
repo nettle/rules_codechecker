@@ -5,6 +5,7 @@ buildifier_test(
     name = "buildifier_native",
     diff_command = "diff -u",
     exclude_patterns = [
+        "./.ci/*",
         "./.git/*",
     ],
     lint_mode = "warn",
