@@ -1,1 +1,2 @@
+.ci/micromamba
 test/unit/external_repository
