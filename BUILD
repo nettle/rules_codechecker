@@ -5,9 +5,11 @@ buildifier_test(
     name = "buildifier_native",
     diff_command = "diff -u",
     exclude_patterns = [
+        "./.ci/*",
         "./.git/*",
     ],
     lint_mode = "warn",
+    lint_warnings = ["all"],
     mode = "diff",
     no_sandbox = True,
     workspace = "//:WORKSPACE",
